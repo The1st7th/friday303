@@ -1,11 +1,14 @@
 var numberlist= [];
 var check;
 var check2;
+var name1;
+var output1;
 
 
 function beepboop(n, name) {
 numberlist = n.split(",");
 var output=[];
+name1= name;
 
 
 for (i = 0; i < numberlist.length; i++){
@@ -40,7 +43,8 @@ for (i = 0; i < numberlist.length; i++){
   
 }
 }
-
+output1 = output;
+console.log(output);
 return output;
 }
  function sort(n) {
@@ -66,8 +70,20 @@ return output;
      counter = counter - 1; 
    }
    console.log(numbers);
-   return numbers;
+   var newinput = numbers.toString();
+   if (output1 != undefined){
+     console.log(output1);
+   console.log("true");
+   beepboop (newinput,name1);}
+   else{
+     return numbers;}
  }
+
+ function ClearFields(){
+  document.getElementById("name").value = "";
+  document.getElementById("num").value = "";
+
+};
 
 
 
@@ -77,10 +93,12 @@ $(document).ready(function(){
 var n = $("textarea").val();
 var name= $("#name").val();
 $("#beepboop").text(beepboop(n,name).join(" "));
+
 });
 
 $("#sort").click(function(){
   var n = $("textarea").val();
   $("#sorted").text(sort(n).join(" "));
+
   });
 });
